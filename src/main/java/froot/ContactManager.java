@@ -14,11 +14,15 @@ public class ContactManager {
                 System.out.println("your contact exsit !");
                 System.out.println(contacts.get(i));
                 state = true;
-                break;
             }
         }
         if(!state){
                 System.out.println("Contact not found");
             }
+    }
+    public void ListC(){
+        for(int i = 0 ; i < contacts.size() ; i++){
+            System.out.println(contacts.get(i));
+        }
     }
 }
