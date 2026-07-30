@@ -4,25 +4,22 @@ import java.util.*;
 public class ContactManager {
     ContactManager(){};
     List <Contact> contacts = new ArrayList<>();
-    public void AddC(Contact C){
+    public boolean AddC(Contact C){
+        if(C==null) return false;
         contacts.add(C);
+        return true;
     }
-    public void searchC(String name){
+    public Contact searchC(String name){
         boolean state = false;
+        Contact user = new Contact();
         for(int i = 0 ; i < contacts.size() ; i++){
             if(contacts.get(i).getName().equals(name)){
-                System.out.println("your contact exsit !");
-                System.out.println(contacts.get(i));
-                state = true;
+                user = contacts.get(i);
             }
         }
-        if(!state){
-                System.out.println("Contact not found");
-            }
+        return user;
     }
-    public void ListC(){
-        for(int i = 0 ; i < contacts.size() ; i++){
-            System.out.println(contacts.get(i));
-        }
+    public Contact ListC(){
+        return contacts;
     }
 }

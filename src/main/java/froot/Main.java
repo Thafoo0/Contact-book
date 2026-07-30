@@ -1,8 +1,46 @@
 package froot;
+import io.javalin.Javalin;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args){
+        Javalin app = Javalin.create().start(7070);
+        app.get("/Contact",ctx -> {
+            List <Contact> list = new ArrayList<>();
+                list = searchC();
+                ctx.status(200);
+                if(list.isEmpty())(
+                    ctx.result("your list is empty");
+                    return;
+                )
+            ctx.json(list);
+        });
+        app.get("/contact/search",ctx -> {
+            String person = ctx.queryParam("name");
+            Contact user = searchC(person);
+            if(user == null){
+                ctx.satatus(404);
+                ErrorResponse error = new ErrorResponse("Contact doesn't exist");
+                ctx.json(error);
+                return;
+            }
+            ctx.status(200);
+            ctx.json(user);
+        });
+        app.post("/contact/add", ctx -> {
+            Contact contact = ctx.bodyAsClass(contact.Class);
+            boolean B = AddC(contact);
+            if(B == false){
+                ctx.satatus(404);
+                ErrorResponse error = new ErrorResponse("you should enter at least name , number or email");
+                ctx.json(error);
+                return;
+            }
+            ctx.status(200);
+            ErrorResponse error = new ErrorResponse("Contact Added Successfuly !");
+            ctx.json(error);
+        })
+
         ContactManager cm = new ContactManager();
         Scanner sc = new Scanner(System.in);
 
