@@ -5,7 +5,7 @@ public class ContactManager {
     ContactManager(){};
     List <Contact> contacts = new ArrayList<>();
     public boolean AddC(Contact C){
-        if(C==null) return false;
+        if(C.isEmpty()) return false;
         contacts.add(C);
         return true;
     }
@@ -19,7 +19,7 @@ public class ContactManager {
         }
         return user;
     }
-    public Contact ListC(){
+    public List<Contact> ListC(){
         return contacts;
     }
 }

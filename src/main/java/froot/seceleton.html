@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cheap.css">
+</head>
+<body>
+    <h1>welcome to your contact app</h1>
+    <div id="container">
+        <div id="Add">Add New Contact</div>
+        <div id="Search">Search Contact</div>
+        <div id="List">List Contacts</div>
+        <div id="Delete">Delete Contact</div>
+    </div>
+    <div id="Addaction" style="display: none;">
+            <label for="myadd">Add : </label>
+            <input type="text" id="nameI" placeholder="Name" required>
+            <input type="text" id="numberI" placeholder="Phone number" required>
+            <input type="text" id="emailI" placeholder="email">
+            <button type="submit" id="addclick">click</button>
+    </div>
+    <div id="Searchaction" style="display: none;">
+            <label for="mysearch">Search : </label>
+            <input type="text" id="SearchI" placeholder="Name">
+            <button type="submit" id="searchclick">click</button>
+    </div>
+    <div id="Deleteaction" style="display: none;">
+            <label for="mydelete">Delete : </label>
+            <input type="text" id="DeleteI" placeholder="Name">
+            <button type="submit" deleteclick>click</button>
+    </div>
+    <div id="showlist" style="display: none;"></div> <!--this where list show up-->
+    <div id="searchtarget" style="display: none;"></div> <!--person we search for show up here s-->
+    <script src="helpers.js"></script>
+    <script src="myjs.js"></script>
+</body>
+</html>
